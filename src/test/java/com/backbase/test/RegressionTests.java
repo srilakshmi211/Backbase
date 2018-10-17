@@ -6,6 +6,7 @@ import com.backbase.pom.HomePage;
 import com.backbase.testhelper.TestHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestResult;
@@ -19,11 +20,18 @@ import java.io.IOException;
 import static org.testng.AssertJUnit.assertTrue;
 
 public class RegressionTests {
-    static WebDriver driver = new ChromeDriver();
+    static WebDriver driver ;
 
     @BeforeSuite
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperties().get("user.dir")+"/chromedriver");
+        if(System.getProperty("browserType").equals("headless")){
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.addArguments("--headless");
+            driver = new ChromeDriver(chromeOptions);
+        }else{
+            driver = new ChromeDriver();
+        }
         driver.get(HomePage.URL);
         driver.manage().window().fullscreen();
         PageFactory.initElements(driver, HomePage.class);
