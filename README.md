@@ -1,13 +1,24 @@
 # Backbase Computer Database Automation Framework
 
-This reprository contains regression tests for computer database application: http://computer-database.herokuapp.com/computers.
+This repository contains regression tests for computer database application: http://computer-database.herokuapp.com/computers.
 
-They are written using on selenium webdriver, java and testng. The IDE used for developing is IntelliJ IDEA.
+Automation framework is a gradle project which uses Selenium Webdriver, Java and TestNG. The IDE used for developing is IntelliJ IDEA.
 
-To execute tests:
+**To execute tests:**
 
 1. Clone the project 
 2. Import the project in IntelliJ IDEA as a gradle project.
-3. Run testng.xml or RegressionTests.java to execute regression test suite.
+3. To run using Run configurations:
+>- Go to Run> Edit Configurations
+>- Create a Gradle Run Configuration
+>- Set task to `test`
+>- Set VM options to `-Dapp.browserType=headless` for testing on headless browser or `-Dapp.browserType=chrome` for testing on chrome browser
+>- Optionally, set Argument to `--stacktrace`
+>- Save the configuration and run.
+4. To run tests from command line:
+>- To run on headless browser use command - 'gradle test -DbrowserType=headless'
+>- To run on chrome browser use command - 'gradle test -DbrowserType=chrome'
 
-The testcases are run on chrome browser, takes screenshot at the end of every testcase and stores it in the /screenshots folder for future reference and test report is generated in /test-output folder.
+At the end of every testcase screenshots are taken and stored in /screenshots folder for future reference and test report is generated in /build/reports/tests/test/index.html file.
+
+*NOTE: Automation framework was developed on Mac.*
