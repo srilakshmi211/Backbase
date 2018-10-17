@@ -157,6 +157,13 @@ public class RegressionTests {
         assertTrue(AddComputerPage.REQUIRED_TEXT.isDisplayed());
     }
 
+    @Test
+    public void verifySearchWithNoResults(){
+        TestHelper.navigateToAddComputer();
+        TestHelper.addComputer(TestHelper.generateString());
+        assertTrue(TestHelper.searchComputer(TestHelper.generateString()).equals("No computers found"));
+    }
+
     @AfterSuite
     public void tearDown() {
         driver.close();
