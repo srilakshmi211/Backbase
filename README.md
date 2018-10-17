@@ -16,8 +16,8 @@ Automation framework is a gradle project which uses Selenium Webdriver, Java and
 >- Optionally, set Argument to `--stacktrace`
 >- Save the configuration and run.
 4. To run tests from command line:
->- To run on headless browser use command - 'gradle test -DbrowserType=headless'
->- To run on chrome browser use command - 'gradle test -DbrowserType=chrome'
+>- To run on headless browser use command - `gradle test -DbrowserType=headless`
+>- To run on chrome browser use command - `gradle test -DbrowserType=chrome`
 
 At the end of every testcase screenshots are taken and stored in /screenshots folder for future reference and test report is generated in /build/reports/tests/test/index.html file.
 
