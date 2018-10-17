@@ -158,7 +158,7 @@ public class RegressionTests {
     }
 
     @Test
-    public void verifySearchWithNoResults(){
+    public void verifySearchWithNoResult(){
         TestHelper.navigateToAddComputer();
         TestHelper.addComputer(TestHelper.generateString());
         assertTrue(TestHelper.searchComputer(TestHelper.generateString()).equals("No computers found"));
