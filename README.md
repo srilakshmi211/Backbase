@@ -1,4 +1,4 @@
-# Backbase Computer Database Automation Framework
+# Computer Database Automation Framework
 
 This repository contains regression tests for computer database application: http://computer-database.herokuapp.com/computers.
 
